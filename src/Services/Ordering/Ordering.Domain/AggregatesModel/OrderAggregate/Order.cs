@@ -158,6 +158,11 @@ public class Order
         AddDomainEvent(new OrderCancelledDomainEvent(this));
     }
 
+    public void SetCompletedStatus()
+    {
+        _description = $"The order completed.";
+    }
+
     public void SetCancelledStatusWhenStockIsRejected(IEnumerable<int> orderStockRejectedItems)
     {
         if (_orderStatusId == OrderStatus.AwaitingValidation.Id)
